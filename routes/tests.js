@@ -33,7 +33,7 @@ router.get("/", async(req, res) => {
 });
 
 router.get("/:book", async(req, res) => {
-    const test=await Test.find({book:req.params.book})
+    const test=await Test.find({book:req.params.book}).sort({pageNumber:1}).collation({locale: "en_US", numericOrdering: true})
     res.send(test)
   });
 
