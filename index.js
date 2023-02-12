@@ -11,6 +11,7 @@ const home = require("./routes/home");
 const test = require("./routes/tests");
 const book = require("./routes/book");
 const resource = require("./routes/resource");
+const admin =require("./routes/admin")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,6 +22,7 @@ app.use("/", home);
 app.use("/tests", test);
 app.use("/book", book);
 app.use("/resource", resource);
+app.use("/admin",admin)
 
 main().catch((err) => console.log(err));
 
