@@ -3,6 +3,8 @@ services:
   web:
     build: .
     command: npm start
+    ports:
+      - 3333:3333
     
   mongo:
     image: mongo
