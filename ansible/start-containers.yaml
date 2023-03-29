@@ -6,6 +6,12 @@
         repo: https://github.com/milad7212/back-ready.git
         dest: /home/milad/back-ready
 
+    - name: Copy the .env file
+      copy:
+        src: /home/milad/.env
+        dest: /home/milad/back-ready/.env
+        remote_src: true
+
     - name: Build the docker image
       docker_image:
         path: /home/milad/back-ready
