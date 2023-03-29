@@ -12,21 +12,10 @@
         dest: /home/milad/back-ready/.env
         remote_src: true
 
-    - name: Build the docker image
-      docker_image:
-        path: /home/milad/back-ready
-        name: back-ready
-        tag: latest
-        build:
-          nocache: true
-          rm: true
-          pull: true
+    - name: Create and start services
+      community.docker.docker_compose:
+        project_src: /home/milad/back-ready
+      register: output
 
-    - name: Start the docker container
-      docker_container:
-        name: back-ready
-        image: back-ready
-        state: started
-        restart_policy: always
-        ports:
-          - "3333:3333"
+    - ansible.builtin.debug:
+        var: output

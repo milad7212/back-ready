@@ -10,8 +10,7 @@ services:
     env_file:
       - .env
     volume:
-      - mongodb:/data/db
-    
+      - ~/mongodb-data:/data/db
 
   mongo-express:
     image: mongo-express
@@ -20,6 +19,3 @@ services:
       - 8081:8081
     env_file:
       - .env
-
-volumes:
-  mongodb:
