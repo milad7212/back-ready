@@ -9,7 +9,7 @@ services:
     restart: always
     env_file:
       - .env
-    volume:
+    volumes:
       - ~/mongodb-data:/data/db
 
   mongo-express:
