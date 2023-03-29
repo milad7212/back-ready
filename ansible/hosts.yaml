@@ -1,0 +1,6 @@
+prd:
+  hosts:
+    server1:
+      ansible_port: 22900
+      ansible_host: 151.80.241.214
+      ansible_user: root

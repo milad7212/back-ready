@@ -1,0 +1,26 @@
+- name: Start all docker containers
+  hosts: prd
+  tasks:
+    - name: Clone the repo
+      git:
+        repo: https://github.com/milad7212/back-ready.git
+        dest: /home/milad/back-ready
+
+    - name: Build the docker image
+      docker_image:
+        path: /home/milad/back-ready
+        name: back-ready
+        tag: latest
+        build:
+          nocache: true
+          rm: true
+          pull: true
+
+    - name: Start the docker container
+      docker_container:
+        name: back-ready
+        image: back-ready
+        state: started
+        restart_policy: always
+        ports:
+          - "3333:3333"

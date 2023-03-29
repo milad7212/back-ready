@@ -1,0 +1,14 @@
+- name: Remove mongodb
+  hosts: all
+  become: true
+  tasks:
+    - name: Stop mongodb
+      service:
+        name: mongodb
+        state: stopped
+        enabled: false
+
+    - name: Remove mongodb
+      apt:
+        name: mongodb
+        state: absent

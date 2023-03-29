@@ -1,0 +1,14 @@
+- name: Install mongodb
+  hosts: all
+  become: true
+  tasks:
+    - name: Install mongodb
+      apt:
+        name: mongodb
+        state: present
+
+    - name: Start mongodb
+      service:
+        name: mongodb
+        state: started
+        enabled: true
