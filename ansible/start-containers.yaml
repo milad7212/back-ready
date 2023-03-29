@@ -18,11 +18,6 @@
         state: directory
         mode: 0755
 
-    - name: Pip install docker-compose
-      pip:
-        name: docker-compose
-        executable: pip3
-
     - name: Create and start services
       community.docker.docker_compose:
         project_src: /home/milad/back-ready
